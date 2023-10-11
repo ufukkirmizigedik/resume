@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang=eng">
+{% extends 'layout.html' %}
 
-{% include 'includes/head.html' with title="contact"%}
-
-{% include 'includes/nav.html'%}
-
-<body>
-
+{% block content %}
 <h1> Contact Page</h1>
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -21,3 +15,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+{% endblock %}

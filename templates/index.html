@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang=eng">
+{% extends 'layout.html' %}
 
-{% include 'includes/head.html' with title="index"%}
-{% include 'includes/nav.html'%}
+{% block content %}
 <body>
 
 <h1> Resume App</h1>
@@ -12,4 +10,5 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
 </body>
-</html>
+
+{% endblock %}

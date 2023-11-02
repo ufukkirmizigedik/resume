@@ -1,6 +1,4 @@
-FROM python:3.11-slim
-RUN apt-get update
-RUN apt-get install python3-dev build-essential -y
+FROM python:3.11
 #set enviroment variables
 ENV PYTHONDONYWRITEBYTECODE 1
 ENV VIRTUAL_ENV=/opt/venv
@@ -11,4 +9,5 @@ ADD ./requirements.txt /tmp/requirements.txt
 RUN pip install -r/tmp/requirements.txt
 COPY . /srv/app
 WORKDIR /srv/app
+CMD ["python","manage.py","runserver","0.0.0.0:8000"]
 

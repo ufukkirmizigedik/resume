@@ -1,13 +1,11 @@
 FROM python:3.11
-#set enviroment variables
-ENV PYTHONDONYWRITEBYTECODE 1
-ENV VIRTUAL_ENV=/opt/venv
+ENV PYTHONDONTWRITEBYTECODE 1
+RUN mkdir /app
+WORKDIR /app
+ENV VIRTUAL_ENV /opt/venv
+RUN python -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-RUN pip install --upgrade pip
-RUN pip install virtualenv && python -m virtualenv $VIRTUAL_ENV
-ADD ./requirements.txt /tmp/requirements.txt
-RUN pip install -r/tmp/requirements.txt
-COPY . /srv/app
-WORKDIR /srv/app
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . /app/
 CMD ["python","manage.py","runserver","0.0.0.0:8000"]
-

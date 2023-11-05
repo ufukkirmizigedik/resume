@@ -1,13 +1,12 @@
-version: "3.8"
+version: "3.11"
 services:
-  app:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
-    env_file:
-      - djangoProject/docker.env
     ports:
       - "8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
-volumes:
-  static-data:
+    volumes:
+      - .:/app
+    env_file:
+      - djangoProject/docker.env

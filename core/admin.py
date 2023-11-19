@@ -11,6 +11,6 @@ User.objects.filter(is_superuser=True)
 class GeneralSettingAdmin(admin.ModelAdmin):
     list_display = ['id','name','description','parameters','update_date','create_date']
     search_fields = ['name','description']
-    list_editable = ['name','description']
+    list_editable = ['name','description','parameters']
     class Meta:
         model = GeneralSettings
